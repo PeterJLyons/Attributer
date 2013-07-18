@@ -12,19 +12,18 @@
 @property (strong, nonatomic) IBOutlet UITextField *textInput;
 @property (strong, nonatomic) IBOutlet UILabel *textOutput;
 @property (strong, nonatomic) IBOutlet UIButton *updateButton;
-
 @end
 
 @implementation TextChangerViewController
 
 
-- (void)updateText:(NSAttributedString*)input
+- (void)updateText:(NSAttributedString *)input
 {
     [self.textOutput setAttributedText:input];
 }
 - (IBAction)updateDisplayText:(UIButton *)sender
 {
-    [self updateText:self.textInput.attributedText];
+    [self updateText:[[NSAttributedString alloc] initWithString:self.textInput.text]];
 }
 
 @end
